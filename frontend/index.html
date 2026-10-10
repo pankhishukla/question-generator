@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Practice Quiz Generator</h1>
+    <p class="sub">Type any topic and get 5 practice questions with solutions, generated locally by Ollama.</p>
+
+    <form id="form">
+      <input id="topic" type="text" placeholder="e.g. Photosynthesis, Quadratic equations, World War II" autofocus required>
+      <select id="difficulty" aria-label="Difficulty">
+        <option value="mixed">Mixed (easy → hard)</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button id="generate" type="submit">Generate</button>
+    </form>
+
+    <div id="progress" hidden><div id="bar"></div></div>
+    <div id="status" role="status"></div>
+    <ol id="questions"></ol>
+
+    <button id="more" hidden>Generate new set</button>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

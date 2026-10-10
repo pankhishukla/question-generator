@@ -1,0 +1,34 @@
+:root {
+  --bg: #f6f7fb; --card: #fff; --text: #1c2030; --muted: #6b7185;
+  --accent: #4f46e5; --border: #e3e5ee; --error: #b42318;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14161f; --card: #1d2030; --text: #eceef7; --muted: #9aa1b8; --accent: #818cf8; --border: #2c3046; --error: #f97066; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 40px 16px 80px; }
+h1 { margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 24px; }
+
+form { display: flex; gap: 8px; }
+input { flex: 1; padding: 12px 14px; font: inherit; color: inherit; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+select { padding: 12px; font: inherit; color: inherit; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+button { padding: 12px 20px; font: inherit; font-weight: 600; color: #fff; background: var(--accent); border: 0; border-radius: 8px; cursor: pointer; }
+button:disabled { opacity: .5; cursor: wait; }
+#more { display: block; margin: 24px auto 0; }
+
+#status { min-height: 1.5em; margin: 16px 0; color: var(--muted); }
+#status.error { color: var(--error); }
+
+#questions { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: q; }
+#questions li { counter-increment: q; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.q { font-weight: 600; white-space: pre-wrap; }
+.q::before { content: "Q" counter(q) ". "; color: var(--accent); }
+details { margin-top: 10px; }
+summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+.sol { margin-top: 10px; padding: 10px 12px; white-space: pre-wrap; background: var(--bg); border-left: 3px solid var(--accent); border-radius: 4px; }
+#progress { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 16px; }
+#bar { height: 100%; width: 0; background: var(--accent); transition: width .4s; }
+
+@media (max-width: 560px) { form { flex-wrap: wrap; } input { flex-basis: 100%; } select { flex: 1; } }
